@@ -24,6 +24,8 @@ spec:
           name: config
         - mountPath: /home/coder/projects
           name: projects
+        - mountPath: /home/coder/.ssh
+          name: ssh
         resources:
           limits:
             memory: "1024Mi"
@@ -35,4 +37,8 @@ spec:
       - name: projects
         hostPath:
           path: /home/masato/projects
+          type: Directory
+      - name: ssh
+        hostPath:
+          path: /home/masato/.ssh
           type: Directory
