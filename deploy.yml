@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-server
+  labels:
+    app: code-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: code-server
+  template:
+    metadata:
+      labels:
+        app: code-server
+    spec:
+      containers:
+      - name: code-server
+        image: codercom/code-server
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /home/coder/.config/code-server
+          name: config
+        - mountPath: /home/coder/projects
+          name: projects
+        resources:
+          limits:
+            memory: "1024Mi"
+      volumes:
+      - name: config
+        hostPath:
+          path: /home/masato/.config/code-server
+          type: Directory
+      - name: projects
+        hostPath:
+          path: /home/masato/projects
+          type: Directory
