@@ -26,6 +26,8 @@ spec:
           name: projects
         - mountPath: /home/coder/.ssh
           name: ssh
+        - mountPath: /home/coder/.gitconfig
+          name: git
         resources:
           limits:
             memory: "1024Mi"
@@ -42,3 +44,7 @@ spec:
         hostPath:
           path: /home/masato/.ssh
           type: Directory
+      - name: git
+        hostPath:
+          path: /home/masato/.gitconfig
+          type: File
