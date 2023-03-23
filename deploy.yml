@@ -30,9 +30,9 @@ spec:
           name: git
         resources:
           limits:
-            memory: "1024Mi"
+            memory: "2048Mi"
           requests:
-            memory: "512Mi"
+            memory: "2048Mi"
       volumes:
       - name: config
         hostPath:
