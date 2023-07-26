@@ -21,7 +21,7 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - mountPath: /home/coder/
-          name: code-server-pvc
+          name: contents
         resources:
           limits:
             memory: "1024Mi"
