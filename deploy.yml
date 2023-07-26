@@ -27,6 +27,12 @@ spec:
             memory: "1024Mi"
           requests:
             memory: "512Mi"
+        env:
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: code-server-secret
+              key: password
       volumes:
       - name: contents
         persistentVolumeClaim:
