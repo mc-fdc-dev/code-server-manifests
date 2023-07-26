@@ -20,33 +20,14 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - mountPath: /home/coder/.config/code-server
-          name: config
-        - mountPath: /home/coder/projects
-          name: projects
-        - mountPath: /home/coder/.ssh
-          name: ssh
-        - mountPath: /home/coder/.gitconfig
-          name: git
+        - mountPath: /home/coder/
+          name: code-server-pvc
         resources:
           limits:
-            memory: "2048Mi"
+            memory: "1024Mi"
           requests:
-            memory: "2048Mi"
+            memory: "512Mi"
       volumes:
-      - name: config
-        hostPath:
-          path: /home/masato/.config/code-server
-          type: Directory
-      - name: projects
-        hostPath:
-          path: /home/masato/projects
-          type: Directory
-      - name: ssh
-        hostPath:
-          path: /home/masato/.ssh
-          type: Directory
-      - name: git
-        hostPath:
-          path: /home/masato/.gitconfig
-          type: File
+      - name: contents
+        persistentVolumeClaim:
+          claimName: code-server-pvc
