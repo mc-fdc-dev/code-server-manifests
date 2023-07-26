@@ -28,7 +28,7 @@ spec:
           requests:
             memory: "512Mi"
         env:
-        - name: SECRET_PASSWORD
+        - name: PASSWORD
           valueFrom:
             secretKeyRef:
               name: code-server-secret
