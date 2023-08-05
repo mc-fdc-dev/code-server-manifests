@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - mountPath: /home/coder/
+        - mountPath: /
           name: contents
         resources:
           limits:
