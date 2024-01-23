@@ -24,7 +24,7 @@ spec:
           name: contents
         resources:
           limits:
-            memory: "1024Mi"
+            memory: "4Gi"
           requests:
             memory: "512Mi"
         env:
